@@ -1,0 +1,20 @@
+language: ruby
+sudo: false
+cache: bundler
+bundler_args: --without yard guard benchmarks tools
+env:
+  global:
+    - JRUBY_OPTS='--dev -J-Xmx1024M'
+    - CODECLIMATE_REPO_TOKEN=e5f7d153e6fdf6dbd413b18aefe31b20f03e954e9decd46d251431bd43c99fb7
+script: "bundle exec rake ci"
+rvm:
+  - 2.0
+  - 2.1
+  - rbx-2
+  - jruby
+  - jruby-head
+  - ruby-head
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-head
