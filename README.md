@@ -1,17 +1,17 @@
-[gem]: https://rubygems.org/gems/rom-eventstore
-[travis]: https://travis-ci.org/rom-eventstore/rom-eventstore
-[gemnasium]: https://gemnasium.com/rom-eventstore/rom-eventstore
-[codeclimate]: https://codeclimate.com/github/rom-eventstore/rom-eventstore
-[inchpages]: http://inch-ci.org/github/rom-eventstore/rom-eventstore
+[gem]: https://rubygems.org/gems/rom-event_store
+[travis]: https://travis-ci.org/rom-eventstore/rom-event_store
+[gemnasium]: https://gemnasium.com/rom-eventstore/rom-event_store
+[codeclimate]: https://codeclimate.com/github/rom-eventstore/rom-event_store
+[inchpages]: http://inch-ci.org/github/rom-eventstore/rom-event_store
 
-# Rom::Eventstore
+# Rom::EventStore
 
-[![Gem Version](https://badge.fury.io/rb/rom-eventstore.svg)][gem]
-[![Build Status](https://travis-ci.org/rom-eventstore/rom-eventstore.svg?branch=master)][travis]
-[![Dependency Status](https://gemnasium.com/rom-eventstore/rom-eventstore.png)][gemnasium]
-[![Code Climate](https://codeclimate.com/github/rom-eventstore/rom-eventstore/badges/gpa.svg)][codeclimate]
-[![Test Coverage](https://codeclimate.com/github/rom-eventstore/rom-eventstore/badges/coverage.svg)][codeclimate]
-[![Inline docs](http://inch-ci.org/github/rom-eventstore/rom-eventstore.svg?branch=master)][inchpages]
+[![Gem Version](https://badge.fury.io/rb/rom-event_store.svg)][gem]
+[![Build Status](https://travis-ci.org/rom-eventstore/rom-event_store.svg?branch=master)][travis]
+[![Dependency Status](https://gemnasium.com/rom-eventstore/rom-event_store.png)][gemnasium]
+[![Code Climate](https://codeclimate.com/github/rom-eventstore/rom-event_store/badges/gpa.svg)][codeclimate]
+[![Test Coverage](https://codeclimate.com/github/rom-eventstore/rom-event_store/badges/coverage.svg)][codeclimate]
+[![Inline docs](http://inch-ci.org/github/rom-eventstore/rom-event_store.svg?branch=master)][inchpages]
 
 Event Store support for [Ruby Object Mapper](https://github.com/rom-rb/rom)
 
@@ -20,7 +20,7 @@ Event Store support for [Ruby Object Mapper](https://github.com/rom-rb/rom)
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rom-eventstore'
+gem 'rom-event_store'
 ```
 
 And then execute:
@@ -29,7 +29,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install rom-eventstore
+    $ gem install rom-event_store
 
 ## Usage
 

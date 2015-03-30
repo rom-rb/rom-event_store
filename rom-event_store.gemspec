@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rom/eventstore/version'
+require 'rom/event_store/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'rom-eventstore'
-  spec.version       = Rom::Eventstore::VERSION
+  spec.name          = 'rom-event_store'
+  spec.version       = Rom::EventStore::VERSION
   spec.authors       = ['Héctor Ramón', 'Lorenzo Arribas']
   spec.email         = ['hector0193@gmail.com', 'lorenzo.s.arribas@gmail.com']
 
-  spec.summary       = 'EventStore support for Ruby Object Mapper'
+  spec.summary       = 'Event Store support for Ruby Object Mapper'
   spec.description   = spec.summary
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/rom-eventstore/rom-event_store'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

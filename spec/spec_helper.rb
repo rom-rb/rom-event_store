@@ -5,7 +5,7 @@ if RUBY_ENGINE == 'rbx'
   CodeClimate::TestReporter.start
 end
 
-require 'rom-eventstore'
+require 'rom-event_store'
 
 root = Pathname(__FILE__).dirname
 

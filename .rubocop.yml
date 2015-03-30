@@ -18,7 +18,7 @@ Lint/HandleExceptions:
 # gemspec is a special snowflake
 Metrics/LineLength:
   Exclude:
-    - rom-eventstore.gemspec
+    - rom-event_store.gemspec
 
 # The enforced style doesn’t match Vim’s defaults
 Style/AlignParameters:
@@ -71,4 +71,4 @@ Style/TrivialAccessors:
 # This is a shim file for those who require 'rom-mongo'
 Style/FileName:
   Exclude:
-    - lib/rom-eventstore.rb
+    - lib/rom-event_store.rb

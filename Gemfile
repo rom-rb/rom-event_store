@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in rom-eventstore.gemspec
+# Specify your gem's dependencies in rom-event_store.gemspec
 gemspec
 
 group :test do
