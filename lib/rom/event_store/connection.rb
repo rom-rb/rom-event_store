@@ -94,8 +94,8 @@ module ROM
         def self.prepare(event)
           {
             eventId: SecureRandom.uuid,
-            eventType: event.delete(:type),
-            data: event
+            eventType: event[:type],
+            data: event[:data]
           }
         end
       end

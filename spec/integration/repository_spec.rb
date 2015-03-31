@@ -4,7 +4,15 @@ describe 'Event Store repository' do
   subject(:rom) { setup.finalize }
   let(:setup) { ROM.setup(:event_store, '127.0.0.1:2113') }
   let(:repository) { rom.repositories.default }
-  let(:post_data) { { title: 'Heya!', author: 'Rene' } }
+  let(:post_created) do
+    {
+      type: 'PostCreated',
+      data: {
+        title: 'Heya!',
+        author: 'Rene'
+      }
+    }
+  end
 
   before do
     setup.relation(:posts) do
@@ -17,16 +25,17 @@ describe 'Event Store repository' do
       define(:append)
     end
 
-    rom.command(:posts).append.call(1, type: 'PostCreated', **post_data)
+    rom.command(:posts).append.call(1, post_created)
   end
 
   describe 'env#relation' do
     it 'returns events' do
       event = rom.relation(:posts).by_id(1).one!
 
-      expect(event).not_to be_empty
-      expect(event[:type]).to eql 'PostCreated'
-      expect(event[:data]).to eql post_data
+      expect(event[:type]).to eql(post_created[:type])
+      expect(event[:data]).to eql(post_created[:data])
+      expect(event[:created_at]).to be_instance_of(Time)
+      expect(event[:number]).to be(0)
     end
   end
 end
