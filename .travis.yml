@@ -11,6 +11,7 @@ install:
   - "tar -xvzf EventStore-OSS-Linux-v3.0.3.tar.gz"
   - "mv EventStore-OSS-Linux-v3.0.3 .event_store"
   - "cd .event_store && ./run-node.sh --db ./ESData &"
+  - "bundle install"
 script: "bundle exec rake ci"
 rvm:
   - 2.0
