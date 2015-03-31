@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe 'Event Store repository' do
   subject(:rom) { setup.finalize }
-  let(:setup) { ROM.setup(:event_store, '127.0.0.1:2113') }
+  let(:setup) { ROM.setup(:event_store, '127.0.0.1:1113') }
   let(:repository) { rom.repositories.default }
   let(:post_created) do
     {
       type: 'PostCreated',
       data: {
-        title: 'Heya!',
-        author: 'Rene'
+        'title' => 'Heya!',
+        'author' => 'Rene'
       }
     }
   end

@@ -3,7 +3,13 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in rom-event_store.gemspec
 gemspec
 
+group :runtime do
+  gem 'eventstore', git: 'https://github.com/mathieuravaux/eventstore-ruby',
+                    branch: 'master'
+end
+
 group :test do
+  gem 'inflecto'
   gem 'rom', git: 'https://github.com/rom-rb/rom.git', branch: 'master'
   gem 'rspec', '~> 3.1'
   gem 'codeclimate-test-reporter', require: false
