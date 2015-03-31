@@ -72,3 +72,7 @@ Style/TrivialAccessors:
 Style/FileName:
   Exclude:
     - lib/rom-event_store.rb
+
+# Rescue modificar is useful sometimes
+Style/RescueModifier:
+  Enabled: false

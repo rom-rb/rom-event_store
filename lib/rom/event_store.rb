@@ -1,7 +1,8 @@
-require 'rom/event_store/version'
+require 'rom'
 
-module Rom
-  module EventStore
-    # Your code goes here...
-  end
-end
+require 'rom/event_store/version'
+require 'rom/event_store/repository'
+require 'rom/event_store/relation'
+require 'rom/event_store/commands'
+
+ROM.register_adapter(:event_store, ROM::EventStore)

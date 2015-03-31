@@ -6,6 +6,11 @@ env:
   global:
     - JRUBY_OPTS='--dev -J-Xmx1024M'
     - CODECLIMATE_REPO_TOKEN=1180196768475653637086abfbc1c302a26abde3b8698a8e36c92b4004d193f3
+install:
+  - "wget -nc http://download.geteventstore.com/binaries/EventStore-OSS-Linux-v3.0.3.tar.gz"
+  - "tar -xvzf EventStore-OSS-Linux-v3.0.3.tar.gz"
+  - "mv EventStore-OSS-Linux-v3.0.3 .event_store"
+  - "cd .event_store && ./run-node.sh --db ./ESData &"
 script: "bundle exec rake ci"
 rvm:
   - 2.0
