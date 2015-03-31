@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'inflecto', '~> 0.0.2'
   spec.add_runtime_dependency 'rom', '~> 0.6'
   spec.add_runtime_dependency 'transproc', '~> 0.1', '>= 0.1.2'
 
