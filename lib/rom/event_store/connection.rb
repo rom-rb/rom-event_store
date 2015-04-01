@@ -5,8 +5,8 @@ module ROM
   module EventStore
     class Connection
       def initialize(uri)
-        uri_port = uri.split(':')
-        @connection = Estore::Session.new(*uri_port)
+        host_port = uri.split(':')
+        @connection = Estore::Session.new(*host_port)
       end
 
       def read(stream, start, limit)
@@ -28,7 +28,7 @@ module ROM
           type: event.event_type,
           data: event.data,
           number: event.event_number,
-          created_at: Time.new(event.created)
+          created_at: Time.at(event.created_epoch / 1000)
         }
       end
     end
