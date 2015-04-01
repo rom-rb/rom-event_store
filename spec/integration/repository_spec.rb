@@ -36,7 +36,7 @@ describe 'Event Store repository' do
 
       expect(event[:type]).to eql(post_created[:type])
       expect(event[:data]).to eql(post_created[:data])
-      expect(event[:created_at]).to be_within(1).of(Time.now)
+      expect(event[:created_at]).to be_within(10).of(Time.now)
       expect(event[:number]).to be(0)
     end
   end
