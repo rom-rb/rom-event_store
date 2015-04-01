@@ -4,4 +4,4 @@ if RUBY_ENGINE == 'rbx'
   CodeClimate::TestReporter.start
 end
 
-require 'rom/event_store'
+require 'rom-event_store'
