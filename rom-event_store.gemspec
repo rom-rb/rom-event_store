@@ -20,8 +20,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'rom', '~> 0.6'
-  spec.add_runtime_dependency 'eventstore', '~> 0.0.4'
-  spec.add_runtime_dependency 'transproc', '~> 0.1', '>= 0.1.2'
+  spec.add_runtime_dependency 'estore', '~> 0.0.2'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'

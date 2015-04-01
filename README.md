@@ -3,7 +3,7 @@
 [gemnasium]: https://gemnasium.com/rom-eventstore/rom-event_store
 [codeclimate]: https://codeclimate.com/github/rom-eventstore/rom-event_store
 [inchpages]: http://inch-ci.org/github/rom-eventstore/rom-event_store
-[gitter]: https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rom-eventstore/rom-event_store?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[gitter]: https://gitter.im/rom-eventstore/rom-event_store?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 # Rom::EventStore
 
@@ -13,7 +13,8 @@
 [![Code Climate](https://codeclimate.com/github/rom-eventstore/rom-event_store/badges/gpa.svg)][codeclimate]
 [![Test Coverage](https://codeclimate.com/github/rom-eventstore/rom-event_store/badges/coverage.svg)][codeclimate]
 [![Inline docs](http://inch-ci.org/github/rom-eventstore/rom-event_store.svg?branch=master)][inchpages]
-[![Join the chat at https://gitter.im/rom-eventstore/rom-event_store][gitter]
+
+[![Join the chat at https://gitter.im/rom-eventstore/rom-event_store](https://badges.gitter.im/Join%20Chat.svg)][gitter]
 
 Event Store support for [Ruby Object Mapper](https://github.com/rom-rb/rom)
 

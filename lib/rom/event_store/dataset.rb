@@ -1,6 +1,8 @@
 module ROM
   module EventStore
     class Dataset
+      attr_reader :name
+
       def initialize(name, connection, options = {})
         @name = name
         @connection = connection
@@ -12,15 +14,16 @@ module ROM
       end
 
       def stream
-        @options[:stream]
+        stream = @options[:stream]
+        stream ? "#{name}-#{stream}" : "$#{name}"
       end
 
       def events
-        @connection.events(@name, stream)
+        @connection.read(stream, option(:start, 0), option(:limit, 20))
       end
 
       def append(events)
-        @connection.append(@name, stream, events)
+        @connection.append(stream, events)
       end
 
       def each
@@ -35,6 +38,10 @@ module ROM
 
       def __new__(new_opts = {})
         self.class.new(@name, @connection, @options.merge(new_opts))
+      end
+
+      def option(option, default)
+        @options.fetch(option, default)
       end
     end
   end
