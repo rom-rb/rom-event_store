@@ -1,10 +1,10 @@
 module ROM
   module EventStore
     class Dataset
-      attr_reader :name
+      attr_reader :category
 
-      def initialize(name, connection, options = {})
-        @name = name
+      def initialize(category, connection, options = {})
+        @category = category
         @connection = connection
         @options = options
       end
@@ -15,7 +15,7 @@ module ROM
 
       def stream
         stream = @options[:stream]
-        stream ? "#{name}-#{stream}" : "$#{name}"
+        stream ? "#{category}-#{stream}" : "$#{category}"
       end
 
       def events
@@ -37,7 +37,7 @@ module ROM
       private
 
       def __new__(new_opts = {})
-        self.class.new(@name, @connection, @options.merge(new_opts))
+        self.class.new(@category, @connection, @options.merge(new_opts))
       end
 
       def option(option, default)
