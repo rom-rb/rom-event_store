@@ -27,7 +27,7 @@ RSpec::Matchers.define :have do |expectation|
     expect(actual.to_a.size).to be(expectation)
   end
 
-  chain(:events) { }
+  chain(:events) {}
 
   chain :before do |seconds|
     @before = seconds

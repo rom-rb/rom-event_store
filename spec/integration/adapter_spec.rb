@@ -80,6 +80,7 @@ describe 'ROM / EventStore' do
 
       task = create_task('Joe')
       update_task(task, status: 'Almost done')
+      update_task(task, status: 'Need to fix some bugs')
 
       expect(new_events).to have(3).events.before(5.seconds)
     end

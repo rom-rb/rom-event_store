@@ -31,6 +31,12 @@ module ROM
         events
       end
 
+      def subscribe(&block)
+        subscription = @connection.subscription(stream, @options)
+        subscription.on_event(&block)
+        subscription.start
+      end
+
       def each
         with_events { |event| yield(event) }
       end
