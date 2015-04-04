@@ -9,29 +9,30 @@ module ROM
         @options = options
       end
 
-      def from_stream(id)
-        __new__(stream: id)
+      def from(id)
+        __new__(from: id)
+      end
+
+      def select(stream)
+        __new__(stream: stream)
       end
 
       def stream
         stream = @options[:stream]
-        stream ? "#{category}-#{stream}" : "$#{category}"
+        stream ? "#{category}-#{stream}" : "$ce-#{category}"
       end
 
       def events
-        @connection.read(stream, option(:start, 0), option(:limit, 20))
+        @connection.read(stream, @options).sync
       end
 
       def append(events)
-        @connection.append(stream, events)
+        @connection.append(stream, events).sync
+        events
       end
 
       def each
-        if block_given?
-          events.each { |event| yield(event) }
-        else
-          to_enum
-        end
+        with_events { |event| yield(event) }
       end
 
       private
@@ -42,6 +43,22 @@ module ROM
 
       def option(option, default)
         @options.fetch(option, default)
+      end
+
+      def with_events
+        events.each { |event| yield(dehydrate(event)) }
+      end
+
+      def dehydrate(wrapper)
+        event = wrapper.event
+
+        {
+          id: Estore::Package.parse_uuid(event.event_id),
+          type: event.event_type,
+          data: event.data,
+          number: event.event_number,
+          created_at: Time.at(event.created_epoch / 1000)
+        }
       end
     end
   end

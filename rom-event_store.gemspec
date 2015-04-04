@@ -5,7 +5,7 @@ require 'rom/event_store/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'rom-event_store'
-  spec.version       = Rom::EventStore::VERSION
+  spec.version       = ROM::EventStore::VERSION
   spec.authors       = ['Héctor Ramón', 'Lorenzo Arribas']
   spec.email         = ['hector0193@gmail.com', 'lorenzo.s.arribas@gmail.com']
 
@@ -20,9 +20,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'rom', '~> 0.6'
-  spec.add_runtime_dependency 'estore', '~> 0.0.2'
+  spec.add_runtime_dependency 'estore', '~> 0.1.0'
 
   spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rubocop', '~> 0.28.0'
 end

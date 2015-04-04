@@ -1,11 +1,11 @@
-require 'rom/event_store/connection'
+require 'estore'
 require 'rom/event_store/dataset'
 
 module ROM
   module EventStore
     class Repository < ROM::Repository
       def initialize(uri)
-        @connection = Connection.new(uri)
+        @connection = Estore::Session.new(*uri.split(':'))
         @categories = {}
       end
 
