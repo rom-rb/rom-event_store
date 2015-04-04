@@ -5,7 +5,7 @@
 [inchpages]: http://inch-ci.org/github/rom-eventstore/rom-event_store
 [gitter]: https://gitter.im/rom-eventstore/rom-event_store?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-# Rom::EventStore
+# ROM::EventStore
 
 [![Gem Version](https://badge.fury.io/rb/rom-event_store.svg)][gem]
 [![Build Status](https://travis-ci.org/rom-eventstore/rom-event_store.svg?branch=master)][travis]
@@ -36,7 +36,7 @@ Or install it yourself as:
 
 ## Usage
 
-See [spec/integration/repository_spec.rb](spec/integration/repository_spec.rb) for a sample usage.
+See [spec/integration/adapter_spec.rb](spec/integration/adapter_spec.rb) for a sample usage.
 
 ## License
 
