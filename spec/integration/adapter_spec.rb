@@ -6,9 +6,8 @@ require 'timeout'
 describe 'ROM / EventStore' do
   subject(:rom) { setup.finalize }
   let(:setup) { ROM.setup(:event_store, '127.0.0.1:1113') }
-  let(:tasks_relation) { "tasks_events_#{SecureRandom.hex(10)}".to_sym }
-  let(:task_events) { rom.relation(tasks_relation) }
-  let(:append_task_events) { rom.command(tasks_relation).append }
+  let(:task_events) { rom.relation(:task_events) }
+  let(:append_task_events) { rom.command(:task_events).append }
   let(:tasks) { [] }
   let(:all_events) { [] }
   let(:uuid_regexp) do
@@ -34,15 +33,18 @@ describe 'ROM / EventStore' do
   end
 
   before do
-    # We create a brand new relation every time to avoid resetting EventStore
-    # on each test. Removing events is forbidden.
-    setup.relation(tasks_relation) do
+    setup.relation(:task_events) do
+      # We name the dataset differently every time to avoid resetting
+      # EventStore on each test. Removing events is forbidden.
+      dataset SecureRandom.hex(10)
+      register_as :task_events
+
       def by_id(id)
         select(id)
       end
     end
 
-    setup.commands(tasks_relation) do
+    setup.commands(:task_events) do
       define(:append)
     end
 
