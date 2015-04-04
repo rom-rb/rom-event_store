@@ -28,8 +28,8 @@ describe 'ROM / EventStore' do
     task
   end
 
-  def update_task(task, author)
-    append_task_events.by_id(task).call(event('TaskUpdated', author: author))
+  def update_task(task, data)
+    append_task_events.by_id(task).call(event('TaskUpdated', data))
   end
 
   before do
@@ -51,29 +51,18 @@ describe 'ROM / EventStore' do
     tasks << create_task('John')
     tasks << create_task('Jane')
 
-    update_task(tasks.first, 'Matt')
+    update_task(tasks.first, author: 'Matt')
   end
 
   describe 'relation' do
     it 'returns all the events of a relation' do
-      # We let EventStore projections categorize the new events
-      Timeout.timeout 5 do
-        loop do
-          break if task_events.to_a.size >= 3
-          sleep(0.1)
-        end
-      end
-
-      expect(task_events.to_a.size).to be(3)
-      task_events.to_a.zip(all_events).each do |event, original|
-        expect(event).to include(original)
-      end
+      # We let EventStore projections run to categorize our events
+      expect(task_events).to have(3).events.before(5.seconds)
+      expect(task_events).to contain(all_events)
     end
 
     it 'returns the events of a selected stream' do
-      events = task_events.by_id(tasks.first).to_a
-
-      expect(events.size).to be(2)
+      expect(task_events.by_id(tasks.first)).to have(2).events
     end
 
     it 'returns the events with additional information' do
@@ -82,6 +71,17 @@ describe 'ROM / EventStore' do
       expect(event[:id]).to match(uuid_regexp)
       expect(event[:number]).to be(0)
       expect(event[:created_at]).to be_instance_of(Time)
+    end
+
+    it 'subscribes to new events of a relation' do
+      new_events = []
+
+      task_events.subscribe { |event| new_events << event }
+
+      task = create_task('Joe')
+      update_task(task, status: 'Almost done')
+
+      expect(new_events).to have(3).events.before(5.seconds)
     end
   end
 
