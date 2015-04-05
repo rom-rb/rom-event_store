@@ -15,8 +15,8 @@ end
 
 RSpec::Matchers.define :have do |expectation|
   match do |actual|
-    if @before
-      Timeout.timeout @before do
+    if @timeout
+      Timeout.timeout @timeout do
         loop do
           break if actual.to_a.size >= expectation
           sleep(0.1)
@@ -24,13 +24,17 @@ RSpec::Matchers.define :have do |expectation|
       end
     end
 
-    expect(actual.to_a.size).to be(expectation)
+    expect(actual.to_a.size).to @bigger ? be >= expectation : be(expectation)
   end
 
   chain(:events) {}
 
   chain :before do |seconds|
-    @before = seconds
+    @timeout = seconds
+  end
+
+  chain :or_more do
+    @bigger = true
   end
 end
 

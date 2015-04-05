@@ -76,13 +76,14 @@ describe 'ROM / EventStore' do
     it 'subscribes to new events of a relation' do
       new_events = []
 
-      task_events.subscribe { |event| new_events << event }
-
       task = create_task('Joe')
+
+      task_events.by_id(task).subscribe { |event| new_events << event }
+
       update_task(task, status: 'Almost done')
       update_task(task, status: 'Need to fix some bugs')
 
-      expect(new_events).to have(3).events.before(5.seconds)
+      expect(new_events).to have(2).or_more.events.before(5.seconds)
     end
   end
 
