@@ -9,12 +9,16 @@ module ROM
         @options = options
       end
 
+      def select(stream)
+        __new__(stream: stream)
+      end
+
       def from(id)
         __new__(from: id)
       end
 
-      def select(stream)
-        __new__(stream: stream)
+      def limit(limit)
+        __new__(limit: limit)
       end
 
       def stream
@@ -29,6 +33,12 @@ module ROM
       def append(events)
         @connection.append(stream, events).sync
         events
+      end
+
+      def subscribe(&block)
+        subscription = @connection.subscription(stream, @options)
+        subscription.on_event(&block)
+        subscription.start
       end
 
       def each
