@@ -19,7 +19,7 @@
 * Read all events from a relation
 * Append events to a relation
 
-[Compare v0.0.1...v0.0.2](https://github.com/rom-eventstore/rom-event_store/compare/v0.0.3...v0.0.4)
+[Compare v0.0.1...v0.0.2](https://github.com/rom-eventstore/rom-event_store/compare/v0.0.1...v0.0.2)
 
 ## v0.0.1 - 2015-03-30
 Initial release
