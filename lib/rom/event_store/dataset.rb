@@ -9,12 +9,16 @@ module ROM
         @options = options
       end
 
+      def select(stream)
+        __new__(stream: stream)
+      end
+
       def from(id)
         __new__(from: id)
       end
 
-      def select(stream)
-        __new__(stream: stream)
+      def limit(limit)
+        __new__(limit: limit)
       end
 
       def stream

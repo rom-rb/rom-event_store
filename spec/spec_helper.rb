@@ -24,17 +24,13 @@ RSpec::Matchers.define :have do |expectation|
       end
     end
 
-    expect(actual.to_a.size).to @bigger ? be >= expectation : be(expectation)
+    expect(actual.to_a.size).to be(expectation)
   end
 
   chain(:events) {}
 
-  chain :before do |seconds|
+  chain :in_less_than do |seconds|
     @timeout = seconds
-  end
-
-  chain :or_more do
-    @bigger = true
   end
 end
 
