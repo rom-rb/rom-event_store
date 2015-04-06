@@ -5,7 +5,7 @@ bundler_args: --without yard guard benchmarks tools
 env:
   global:
     - JRUBY_OPTS='--dev -J-Xmx1024M'
-    - CODECLIMATE_REPO_TOKEN=1180196768475653637086abfbc1c302a26abde3b8698a8e36c92b4004d193f3
+    - CODECLIMATE_REPO_TOKEN=3151eaf8f2a35e5c54b14e4618702237023acf89794b908bd1654c3cf8dae44f
 install:
   - "wget -nc http://download.geteventstore.com/binaries/EventStore-OSS-Linux-v3.0.3.tar.gz"
   - "tar -xvzf EventStore-OSS-Linux-v3.0.3.tar.gz"
