@@ -48,6 +48,12 @@ To start the server simply run:
 eventstore
 ```
 
+Before running specs you need to run (from the root of this project):
+
+```
+bin/init-es
+```
+
 ## Usage
 
 See [spec/integration/adapter_spec.rb](spec/integration/adapter_spec.rb) for a sample usage.
