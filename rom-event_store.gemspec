@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Event Store support for Ruby Object Mapper'
   spec.description   = spec.summary
-  spec.homepage      = 'https://github.com/rom-eventstore/rom-event_store'
+  spec.homepage      = 'https://github.com/rom-rb/rom-event_store'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
