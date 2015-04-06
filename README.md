@@ -31,6 +31,23 @@ Or install it yourself as:
 
     $ gem install rom-event_store
 
+## Development
+
+You need to install [EventStore](http://geteventstore.com/) in order to be able
+to run specs.
+
+On OS X you can use [homebrew](http://brew.sh):
+
+```
+brew install homebrew/binary/EventStore
+```
+
+To start the server simply run:
+
+```
+eventstore
+```
+
 ## Usage
 
 See [spec/integration/adapter_spec.rb](spec/integration/adapter_spec.rb) for a sample usage.
