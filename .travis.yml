@@ -12,7 +12,7 @@ install:
   - "mv EventStore-OSS-Linux-v3.0.3 .event_store"
   - "cd .event_store && ./run-node.sh --db ./ESData &"
   - "sleep 5"
-  - "curl -X POST --user admin:changeit 'http://127.0.0.1:2113/projection/$by_category/command/enable' -H 'Content-Length: 0'"
+  - "./bin/init-es"
   - "bundle install"
 script: "bundle exec rake ci"
 rvm:
