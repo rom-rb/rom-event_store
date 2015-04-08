@@ -1,6 +1,8 @@
 ## v0.0.5 - 2015-04-08
 ### Added
 * Stream identifier to event data
+* Development section to README
+* Executable `bin/init-es` that prepares the Event Store for running specs
 
 ### Changed
 * Official `rom` repository! Yay!
