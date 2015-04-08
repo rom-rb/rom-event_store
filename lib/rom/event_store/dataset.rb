@@ -37,7 +37,7 @@ module ROM
 
       def subscribe(&block)
         subscription = @connection.subscription(stream, @options)
-        subscription.on_event(&block)
+        subscription.on_event { |event| block.call(dehydrate(event)) }
         subscription.start
       end
 

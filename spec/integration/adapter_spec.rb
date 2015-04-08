@@ -90,6 +90,7 @@ describe 'ROM / EventStore' do
       update_task(tasks.last, status: 'This should not appear')
 
       expect(new_events).to have(2).events.in_less_than(5.seconds)
+        .and contain(all_events.last(3))
     end
 
     it 'allows to perform a catchup subscription' do
@@ -103,6 +104,7 @@ describe 'ROM / EventStore' do
       update_task(tasks.last, status: 'This one does not')
 
       expect(sub_events).to have(3).events.in_less_than(5.seconds)
+        .and contain(all_events.values_at(0, 2) + all_events.last(2))
     end
   end
 
