@@ -1,3 +1,15 @@
+## v0.0.5 - 2015-04-08
+### Added
+* Stream identifier to event data
+
+### Changed
+* Official `rom` repository! Yay!
+
+### Fixed
+* Event dehydration on subscriptions
+
+[Compare v0.0.4...v0.0.5](https://github.com/rom-rb/rom-event_store/compare/v0.0.4...v0.0.5)
+
 ## v0.0.4 - 2015-04-05
 ### Added
 * Asynchronous subscriptions to relations (live and catchup)
