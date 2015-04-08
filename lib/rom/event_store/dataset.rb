@@ -66,6 +66,7 @@ module ROM
           id: Estore::Package.parse_uuid(event.event_id),
           type: event.event_type,
           data: event.data,
+          stream: event.event_stream_id,
           number: event.event_number,
           created_at: Time.at(event.created_epoch / 1000)
         }
