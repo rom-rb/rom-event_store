@@ -73,11 +73,14 @@ describe 'ROM / EventStore' do
     end
 
     it 'returns the events with additional information' do
-      event = task_events.by_id(tasks[1]).one!
+      expect(task_events).to have(3).events.in_less_than(5.seconds)
+      event = task_events.to_a.last
 
       expect(event[:id]).to match(uuid_regexp)
-      expect(event[:stream]).to match(/^(\w+)-#{tasks[1]}$/)
-      expect(event[:number]).to be(0)
+      expect(event[:category]).to eql(task_events.relation.dataset.category)
+      expect(event[:aggregate]).to eql(tasks[0])
+      expect(event[:number]).to be(1)
+      expect(event[:position]).to be(2)
       expect(event[:created_at]).to be_instance_of(Time)
     end
 

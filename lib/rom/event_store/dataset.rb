@@ -9,8 +9,8 @@ module ROM
         @options = options
       end
 
-      def select(stream)
-        __new__(stream: stream)
+      def select(aggregate)
+        __new__(aggregate: aggregate)
       end
 
       def from(id)
@@ -22,8 +22,8 @@ module ROM
       end
 
       def stream
-        stream = @options[:stream]
-        stream ? "#{category}-#{stream}" : "$ce-#{category}"
+        aggregate = @options[:aggregate]
+        aggregate ? "#{category}-#{aggregate}" : "$ce-#{category}"
       end
 
       def events
@@ -35,9 +35,9 @@ module ROM
         events
       end
 
-      def subscribe(&block)
+      def subscribe
         subscription = @connection.subscription(stream, @options)
-        subscription.on_event { |event| block.call(dehydrate(event)) }
+        subscription.on_event { |event| yield(dehydrate(event)) }
         subscription.start
       end
 
@@ -61,13 +61,16 @@ module ROM
 
       def dehydrate(wrapper)
         event = wrapper.event
+        category, aggregate = event.event_stream_id.split('-', 2)
 
         {
           id: Estore::Package.parse_uuid(event.event_id),
           type: event.event_type,
           data: event.data,
-          stream: event.event_stream_id,
+          category: category,
+          aggregate: aggregate,
           number: event.event_number,
+          position: wrapper.original_event_number,
           created_at: Time.at(event.created_epoch / 1000)
         }
       end
