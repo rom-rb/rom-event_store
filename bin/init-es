@@ -1,18 +1,15 @@
 #!/bin/bash
 
-# Wait for Event Store to be ready
-wget 127.0.0.1:2113 --retry-connrefused --tries=5 -q --wait=2 --spider
+# Set permissions to read unexisting categories
+curl "http://127.0.0.1:2113/streams/\$settings" \
+    -i -d @bin/permissions.json \
+    --user admin:changeit \
+    -H "Content-Type: application/vnd.eventstore.events+json" \
+    > /dev/null
 
 # Enable $by-category projection
 curl 'http://127.0.0.1:2113/projection/$by_category/command/enable' \
     -X POST \
     --user admin:changeit \
     -H 'Content-Length: 0' \
-    > /dev/null
-
-# Set permissions to read unexisting categories
-curl "http://127.0.0.1:2113/streams/\$settings" \
-    -i -d @bin/permissions.json \
-    --user admin:changeit \
-    -H "Content-Type: application/vnd.eventstore.events+json" \
     > /dev/null
