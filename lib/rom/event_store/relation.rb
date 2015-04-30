@@ -8,7 +8,7 @@ module ROM
       def self.inherited(base)
         super
 
-        base.exposed_relations.merge([:subscribe, :from, :limit])
+        base.exposed_relations.merge([:select, :subscribe, :from, :limit])
       end
     end
   end
