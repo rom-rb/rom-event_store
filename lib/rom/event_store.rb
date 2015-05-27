@@ -1,7 +1,7 @@
 require 'rom'
 
 require 'rom/event_store/version'
-require 'rom/event_store/repository'
+require 'rom/event_store/gateway'
 require 'rom/event_store/relation'
 require 'rom/event_store/commands'
 

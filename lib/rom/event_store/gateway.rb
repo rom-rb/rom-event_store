@@ -3,7 +3,7 @@ require 'rom/event_store/dataset'
 
 module ROM
   module EventStore
-    class Repository < ROM::Repository
+    class Gateway < ROM::Gateway
       def initialize(uri)
         @connection = Estore::Session.new(*uri.split(':'))
         @categories = {}
