@@ -21,7 +21,7 @@ rvm:
   - 2.2
   - 2.3.0
   - rbx-2
-  - jruby
+  - jruby-9000
   - jruby-head
   - ruby-head
 matrix:
