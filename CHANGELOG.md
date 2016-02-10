@@ -3,6 +3,7 @@
 ### Changed
 
 * Updated to ROM 1.0.0 (hecrj)
+* `Append` command renamed to `Create`
 
 [Compare v0.0.6...v0.0.7](https://github.com/rom-rb/rom-event_store/compare/v0.0.6...HEAD)
 

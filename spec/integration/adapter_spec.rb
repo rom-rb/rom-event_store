@@ -7,7 +7,7 @@ describe 'ROM / EventStore' do
   let(:setup) { ROM::Configuration.new(:event_store, '127.0.0.1:1113').use(:macros) }
   let(:rom) { ROM.container(setup) }
   let(:task_events) { rom.relation(:task_events) }
-  let(:append_task_events) { rom.command(:task_events).append }
+  let(:append_task_events) { rom.command(:task_events).create }
   let(:tasks) { [] }
   let(:all_events) { [] }
   let(:uuid_regexp) do
@@ -45,7 +45,7 @@ describe 'ROM / EventStore' do
     end
 
     setup.commands(:task_events) do
-      define(:append)
+      define(:create)
     end
 
     tasks << create_task('John')

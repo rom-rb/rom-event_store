@@ -3,7 +3,7 @@ require 'rom/commands/create'
 module ROM
   module EventStore
     module Commands
-      class Append < ROM::Commands::Create
+      class Create < ROM::Commands::Create
         def execute(*events)
           relation.append(events)
         end
