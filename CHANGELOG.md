@@ -1,10 +1,10 @@
-## v0.0.6 - to-be-released
+## v0.0.6 - 2016-02-10
 
 ### Changed
 
 * Updated to ROM 0.8.0 (solnic & hecrj)
 
-[Compare v0.0.5...HEAD](https://github.com/rom-rb/rom-event_store/compare/v0.0.5...HEAD)
+[Compare v0.0.5...v0.0.6](https://github.com/rom-rb/rom-event_store/compare/v0.0.5...v0.0.6)
 
 ## v0.0.5 - 2015-04-08
 
