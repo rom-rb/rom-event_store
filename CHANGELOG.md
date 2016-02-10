@@ -2,7 +2,7 @@
 
 ### Changed
 
-* Updated to ROM 0.8.0 (solnic)
+* Updated to ROM 0.8.0 (solnic & hecrj)
 
 [Compare v0.0.5...HEAD](https://github.com/rom-rb/rom-event_store/compare/v0.0.5...HEAD)
 

@@ -29,7 +29,7 @@ Style/AsciiComments:
   Enabled: false
 
 # Allow using braces for value-returning blocks
-Style/Blocks:
+Style/BlockDelimiters:
   Enabled: false
 
 # Documentation checked by Inch CI
@@ -48,10 +48,6 @@ Style/Lambda:
 Style/MultilineBlockChain:
   Enabled: false
 
-# Even a single escaped slash can be confusing
-Style/RegexpLiteral:
-  MaxSlashes: 0
-
 # Don’t introduce semantic fail/raise distinction
 Style/SignalException:
   EnforcedStyle: only_raise
@@ -68,11 +64,6 @@ Style/StringLiterals:
 Style/TrivialAccessors:
   Enabled: false
 
-# This is a shim file for those who require 'rom-mongo'
+# Allow rom-sql
 Style/FileName:
-  Exclude:
-    - lib/rom-event_store.rb
-
-# Rescue modificar is useful sometimes
-Style/RescueModifier:
-  Enabled: false
+    Enabled: false
