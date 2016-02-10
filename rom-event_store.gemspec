@@ -19,8 +19,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'rom', '~> 0.8.0'
-  spec.add_runtime_dependency 'estore', '~> 0.1.1'
+  spec.add_runtime_dependency 'rom', '~> 1.0'
+  spec.add_runtime_dependency 'estore', '~> 0.1'
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake', '~> 10.0'

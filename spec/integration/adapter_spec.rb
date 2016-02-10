@@ -4,8 +4,8 @@ require 'json'
 require 'timeout'
 
 describe 'ROM / EventStore' do
-  subject(:rom) { setup.finalize }
-  let(:setup) { ROM.setup(:event_store, '127.0.0.1:1113') }
+  let(:setup) { ROM::Configuration.new(:event_store, '127.0.0.1:1113').use(:macros) }
+  let(:rom) { ROM.container(setup) }
   let(:task_events) { rom.relation(:task_events) }
   let(:append_task_events) { rom.command(:task_events).append }
   let(:tasks) { [] }
@@ -77,7 +77,7 @@ describe 'ROM / EventStore' do
       event = task_events.to_a.last
 
       expect(event[:id]).to match(uuid_regexp)
-      expect(event[:category]).to eql(task_events.relation.dataset.category)
+      expect(event[:category]).to eql(task_events.dataset.category)
       expect(event[:aggregate]).to eql(tasks[0])
       expect(event[:number]).to be(1)
       expect(event[:position]).to be(2)

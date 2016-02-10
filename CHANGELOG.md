@@ -1,3 +1,11 @@
+## v0.0.7 - to-be-released
+
+### Changed
+
+* Updated to ROM 1.0.0 (hecrj)
+
+[Compare v0.0.6...v0.0.7](https://github.com/rom-rb/rom-event_store/compare/v0.0.6...HEAD)
+
 ## v0.0.6 - 2016-02-10
 
 ### Changed
